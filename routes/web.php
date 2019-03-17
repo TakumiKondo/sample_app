@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// ホーム画面
+Route::get('/', function () { 
+    return view('home');
+});
+
+// ログイン画面
+Route::get('/login', function () { 
+    return view('login');
+});
+Route::post('/login', function () { 
+    return view('login');
+});
+
+// 登録画面
+Route::get('/register', function () { 
+    return view('register');
+});
+Route::post('/register', function () { 
+    return view('register');
 });
