@@ -10,7 +10,7 @@
 
 	<p class="lead">ユーザ登録画面</p>
 
-	<form action="/register" method="POST">
+	<form action="{{ Route('registUser') }}" method="POST">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label>Name</label>

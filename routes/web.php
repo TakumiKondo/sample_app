@@ -25,9 +25,5 @@ Route::post('/login', function () {
 });
 
 // 登録画面
-Route::get('/register', function () { 
-    return view('register');
-});
-Route::post('/register', function () { 
-    return view('register');
-});
+Route::get('/register', 'RegisterController@create')->name('registerForm');
+Route::post('/register', 'RegisterController@store')->name('registUser');
