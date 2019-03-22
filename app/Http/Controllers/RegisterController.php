@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use App\Repositories\User\UserRepositoryInterface;
 
 class RegisterController extends Controller
 {
+    protected $user_repository;
+
+    public function __construct(UserRepositoryInterface $user_repository){
+        $this->user_repository = $user_repository;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,12 +33,7 @@ class RegisterController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
-
+        $this->user_repository->registUser($request);
         return view('login');
     }
 }
