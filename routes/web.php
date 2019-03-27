@@ -17,12 +17,9 @@ Route::get('/', function () {
 });
 
 // ログイン画面
-Route::get('/login', function () { 
-    return view('login');
-});
-Route::post('/login', function () { 
-    return view('login');
-});
+Route::get('/login', 'LoginController@loginForm')->name('loginForm');
+Route::post('/login', 'LoginController@login')->name('login');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
 // 登録画面
 Route::get('/register', function () { 
