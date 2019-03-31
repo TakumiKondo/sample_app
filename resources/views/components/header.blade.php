@@ -17,7 +17,7 @@
 
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register">ユーザ登録</a>
+                <a class="nav-link" href="{{ Route('registerForm') }}">ユーザ登録</a>
             </li>
         </ul>
     </div>
